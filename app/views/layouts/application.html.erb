@@ -21,13 +21,13 @@
         Dev Match
       <% end %>
     </div>
+    
     <div class="collapse navbar-collapse" id="main-nav-collapse">
-      <div class=" nav navbar-nav navbar-right">
-        <% if current-user %>
-          <%= button_to "Sign Out" destroy_user_session_path, method: :delete, class: 'btn btn-primary navbar-btn' %>
+      <div class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn btn-primary navbar-btn' %>
         <% else %>
           <%= link_to "Log In", new_user_session_path, class: 'btn btn-primary navbar-btn', method: :get %>
-          <%= link_to "Sign Up", new_user_session_path, class: 'btn btn-success navbar-btn', method: :get %>
         <% end %>
       </div>
       <ul class="nav navbar-nav navbar-right">
@@ -42,7 +42,6 @@
   <% flash.each do |key, value| %>
     <%= content_tag :div, value, class: "alert alert-#{key}" %>
   <% end %>
-  
   <%= yield %>
 </div>
 
